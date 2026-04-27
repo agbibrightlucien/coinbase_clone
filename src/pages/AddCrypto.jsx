@@ -32,7 +32,8 @@ function AddCrypto() {
     };
 
     try {
-      const res = await axios.post('http://localhost:5000/api/crypto', payload);
+      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      const res = await axios.post(`${API_URL}/api/crypto`, payload);
       setSuccess(`Successfully added ${res.data.name}! Redirecting...`);
       setFormData({ name: '', symbol: '', price: '', image: '', change24h: '' });
       setTimeout(() => navigate('/explore'), 1500);

@@ -23,10 +23,11 @@ function Explore() {
   useEffect(() => {
     const fetchCryptoData = async () => {
       try {
+        const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
         const [allRes, gainersRes, newRes] = await Promise.all([
-          axios.get("http://localhost:5000/api/crypto"),
-          axios.get("http://localhost:5000/api/crypto/gainers"),
-          axios.get("http://localhost:5000/api/crypto/new"),
+          axios.get(`${API_URL}/api/crypto`),
+          axios.get(`${API_URL}/api/crypto/gainers`),
+          axios.get(`${API_URL}/api/crypto/new`),
         ]);
         setCoins(allRes.data);
         setTopMovers(gainersRes.data.slice(0, 10)); 

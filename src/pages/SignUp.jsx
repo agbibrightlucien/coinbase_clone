@@ -18,7 +18,8 @@ function SignUp() {
     setError('');
 
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/register', formData);
+      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      const res = await axios.post(`${API_URL}/api/auth/register`, formData);
       localStorage.setItem('token', res.data.token);
       navigate('/profile');
     } catch (err) {

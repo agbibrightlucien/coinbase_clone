@@ -8,6 +8,7 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Profile from "./pages/Profile";
 import AddCrypto from "./pages/AddCrypto";
+import WarningBanner from "./components/layout/WarningBanner";
 
 function NotFound() {
   return <h1>404 — Page not found</h1>;
@@ -16,6 +17,7 @@ function NotFound() {
 function App() {
   return (
     <>
+      <WarningBanner />
       <Navbar />  
       <Routes>
         <Route path="/" element={<Home />} />

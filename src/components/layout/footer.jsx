@@ -156,8 +156,9 @@ function Footer() {
             </div>
 
             {/* Bottom section */}
-            <div className="border-t py-6 text-center text-sm text-gray-500">
-                © {new Date().getFullYear()} Coinbase Clone. All rights reserved.
+            <div className="border-t py-6 text-center text-sm text-gray-500 flex flex-col items-center gap-2">
+                <p><strong>Disclaimer:</strong> This is a student demo project and is not affiliated with, endorsed by, or connected to Coinbase. Do not enter real personal information.</p>
+                <p>© {new Date().getFullYear()} Crypto App Demo. All rights reserved.</p>
             </div>
         </footer>
     );

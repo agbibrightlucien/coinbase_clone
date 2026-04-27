@@ -20,7 +20,7 @@ function SignIn() {
     try {
       const res = await axios.post('http://localhost:5000/api/auth/login', formData);
       localStorage.setItem('token', res.data.token);
-      navigate('/');
+      navigate('/profile');
     } catch (err) {
       setError(err.response?.data?.message || 'Invalid email or password');
     } finally {
@@ -35,6 +35,9 @@ function SignIn() {
           <h2 className="mt-2 text-center text-[28px] font-bold text-cb-text">
             Sign in to Coinbase
           </h2>
+          <p className="mt-2 text-center text-[12px] font-bold text-cb-negative bg-red-50 py-1 rounded">
+            Demo app – do not use your real password
+          </p>
           <p className="mt-3 text-center text-[15px] font-medium text-cb-muted">
             New to Coinbase?{' '}
             <Link to="/signup" className="font-semibold text-cb-blue hover:text-cb-blue-hover transition-colors">

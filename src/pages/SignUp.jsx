@@ -20,7 +20,7 @@ function SignUp() {
     try {
       const res = await axios.post('http://localhost:5000/api/auth/register', formData);
       localStorage.setItem('token', res.data.token);
-      navigate('/');
+      navigate('/profile');
     } catch (err) {
       setError(err.response?.data?.message || 'Something went wrong');
     } finally {
@@ -35,6 +35,9 @@ function SignUp() {
           <h2 className="mt-2 text-center text-[28px] font-bold text-cb-text">
             Create your account
           </h2>
+          <p className="mt-2 text-center text-[12px] font-bold text-cb-negative bg-red-50 py-1 rounded">
+            Demo app – do not use your real password
+          </p>
           <p className="mt-3 text-center text-[15px] font-medium text-cb-muted">
             Already have an account?{' '}
             <Link to="/signin" className="font-semibold text-cb-blue hover:text-cb-blue-hover transition-colors">
